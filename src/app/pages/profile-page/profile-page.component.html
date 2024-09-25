@@ -1,0 +1,52 @@
+@if (profile$ | async; as profile) {
+  <header class="profile-page__header">
+    <app-profile-header
+      [profile]="profile">
+    </app-profile-header>
+
+    <a *ngIf="!editMode" class="btn-put to-setting-btn" (click)="enableEditMode()">
+      Редактировать
+    </a>
+  </header>
+
+  <section *ngIf="editMode" class="edit-profile-form">
+    <h2 class="edit-profile-form__title">Редактирование профиля</h2>
+
+    <form (ngSubmit)="submitProfile()">
+      <!-- Блок с аватаром -->
+      <div class="edit-profile-form__avatar">
+        <img [src]="newAvatarUrl || editableProfile?.avatar || '/assets/imgs/no_avatar.jpg'"
+             alt="Avatar"
+             class="edit-profile-form__avatar-preview">
+        <label class="edit-profile-form__avatar-label">
+          Изменить аватар
+          <input type="file" (change)="onAvatarSelected($event)" class="edit-profile-form__avatar-input">
+        </label>
+      </div>
+
+      <!-- Поля ввода для имени, фамилии и email -->
+      <div class="edit-profile-form__fields">
+        <div class="form-group">
+          <label for="firstName">Имя</label>
+          <input id="firstName" [(ngModel)]="editableProfile.first_name" name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Фамилия</label>
+          <input id="lastName" [(ngModel)]="editableProfile.last_name" name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" [(ngModel)]="editableProfile.email" name="email" required>
+        </div>
+      </div>
+
+      <!-- Кнопки отправки и отмены изменений -->
+      <div class="edit-profile-form__actions">
+        <button type="submit" class="btn-save">Сохранить</button>
+        <button type="button" class="btn-cancel" (click)="cancelEditMode()">Отмена</button>
+      </div>
+    </form>
+  </section>
+}

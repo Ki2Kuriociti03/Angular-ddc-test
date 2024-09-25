@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --dark-color: #000000;
+  --light-color: #FFFFFF;
+  --delete-color: #FF0000;
+  --put-color: #00ff7f
+}
+
+body {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+.btn {
+  border: none;
+  background: var(--delete-color);
+  color: var(--light-color);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn:hover {
+  background: #cc0000; /* Более темный оттенок при наведении */
+}
+
+.btn:active {
+  background: #990000; /* Еще темнее при нажатии */
+}
+
+.btn-put {
+  border: none;
+  background: var(--put-color);
+  color: var(--light-color);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn-put:hover {
+  background: #00cc66; /* Более темный оттенок зеленого при наведении */
+}
+
+.btn-put:active {
+  background: #00994d; /* Еще темнее при нажатии */
+}

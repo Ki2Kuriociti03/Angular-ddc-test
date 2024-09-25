@@ -1,0 +1,13 @@
+<h1>Тестовое задание</h1>
+<h2>Профили</h2>
+<div class="profile-card-container">
+  @for (profile of profiles; track profile.id) {
+    <app-profile-card [profile]="profile" (onDelete)="handleDelete($event)">
+    </app-profile-card>
+  }
+</div>
+<h2>Источники</h2>
+@for (resource of resources; track resource.id) {
+  <app-profile-resources [resource]="resource"></app-profile-resources>
+}
+

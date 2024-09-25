@@ -1,1 +1,20 @@
-<p>profile-card works!</p>
+@if (profile) {
+  <div class="profile-card">
+    <div class="avatar-name">
+      <img
+        src= "{{ profile.avatar }}"
+        alt="/assets/imgs/no_avatar.jpg"
+        class="profile-card__avatar"/>
+      <div class="profile-card__name">
+        <a [routerLink]="['/profile', profile.id]" class="profile-card__link">
+          <strong>{{profile.last_name}} {{profile.first_name}}</strong>
+        </a>
+        <span>{{profile.email}}</span>
+      </div>
+    </div>
+
+    <div class="profile-card__action-btns">
+      <button class="btn" (click)="deleteProfile()">Удалить</button>
+    </div>
+  </div>
+}
