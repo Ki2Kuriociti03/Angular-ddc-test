@@ -1,7 +1,7 @@
 .profile-card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* По умолчанию 3 карточки в строке */
-  grid-gap: 16px; /* Зазор между карточками */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
 }
 
 @media (max-width: 992px) {
@@ -10,7 +10,6 @@
   }
 }
 
-/* Адаптация для маленьких экранов (например, мобильные устройства) - 1 карточка */
 @media (max-width: 600px) {
   .profile-card-container {
     grid-template-columns: 1fr;

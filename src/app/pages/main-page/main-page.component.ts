@@ -32,12 +32,11 @@ export class MainPageComponent {
   }
 
   handleDelete(profileId: number) {
-    // Вызов сервиса для удаления
     this.profileService.deleteProfile(profileId).subscribe(response => {
       console.log('Ответ сервера при удалении:', response); // Вывод ответа сервера в консоль
       this.profiles = this.profiles.filter(profile => profile.id !== profileId);
     }, error => {
-      console.error('Ошибка при удалении профиля:', error); // Обработка ошибок
+      console.error('Ошибка при удалении профиля:', error);
     });
   }
 }

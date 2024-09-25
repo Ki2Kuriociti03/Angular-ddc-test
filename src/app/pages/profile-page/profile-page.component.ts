@@ -48,10 +48,9 @@ export class ProfilePageComponent {
     if (fileInput.files && fileInput.files[0]) {
       this.newAvatarFile = fileInput.files[0];
 
-      // Создание URL для предпросмотра выбранного аватара
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.newAvatarUrl = e.target.result;  // Сохраняем URL для отображения
+        this.newAvatarUrl = e.target.result;
       };
       reader.readAsDataURL(this.newAvatarFile);
     }
@@ -59,10 +58,9 @@ export class ProfilePageComponent {
 
   submitProfile() {
     if (this.editableProfile) {
-      // Создаем новый объект профиля с обновленным URL аватара
       const updatedProfile = {
         ...this.editableProfile,
-        avatar: this.newAvatarUrl || this.editableProfile.avatar  // Используем новый URL, если он есть
+        avatar: this.newAvatarUrl || this.editableProfile.avatar
       };
 
       this.profileService.updateAccount(updatedProfile).subscribe(updatedProfileResponse => {
@@ -74,7 +72,7 @@ export class ProfilePageComponent {
 
   cancelEditMode() {
     this.editMode = false;
-    this.newAvatarFile = null;  // Сбрасываем выбранный аватар
-    this.newAvatarUrl = null;   // Сбрасываем URL аватара
+    this.newAvatarFile = null;
+    this.newAvatarUrl = null;
   }
 }
